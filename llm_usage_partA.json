@@ -1,0 +1,129 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part A",
+    "submission_date": "2026-03-02"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 3.1 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-02",
+      "tool_name": "Gemini",
+      "model": "Gemini 3.1 Pro",
+      "purpose": "Checking the exact rules so I don't lose marks.",
+      "prompt": "Can you read my exam instructions and tell me the strict rules for picking a paper? I need the exact allowed years and topics.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "It gave me a quick checklist of the rules so I wouldn't get disqualified for picking the wrong year or topic.",
+      "student_verification": "I double-checked the AI's summary against the official Midsem PDF to make sure it didn't miss anything.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-02",
+      "tool_name": "Gemini",
+      "model": "Gemini 3.1 Pro",
+      "purpose": "Finding a paper that I can actually code on my laptop.",
+      "prompt": "I need a paper on Support Vector Machines from 2009 to 2012. Can you suggest one that is easy to code on my laptop and doesn't have crazy math?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "It suggested 'Training SVMs Without Offset' and explained that the math is simple because it just removes the b term.",
+      "student_verification": "I checked the JMLR website to confirm the paper was real and actually published in 2011.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-02",
+      "tool_name": "Gemini",
+      "model": "Gemini 3.1 Pro",
+      "purpose": "Understanding the main idea of the paper.",
+      "prompt": "I'm looking at 'Training SVMs Without Offset'. Can you explain in simple words what 'offset' means and why removing it makes the model faster?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "It explained the geometry of the line and how removing the offset makes the math much faster to calculate.",
+      "student_verification": "I read the introduction of the paper to make sure the AI's explanation matched what the authors were actually saying.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-02",
+      "tool_name": "Gemini",
+      "model": "Gemini 3.1 Pro",
+      "purpose": "Asking a doubt about how the math actually works in real life.",
+      "prompt": "I have a doubt. If we remove 'b', the line has to go exactly through zero. What if the data points are grouped far away from zero? Won't it fail to separate them?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "It explained that while this is a problem in 2D, in high dimensions (like with kernels) the data is spread out enough that a line through zero works perfectly.",
+      "student_verification": "I drew a 2D graph to see the problem myself, then read the paper's section on high dimensions to understand the solution.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 5,
+      "date": "2026-03-02",
+      "tool_name": "Gemini",
+      "model": "Gemini 3.1 Pro",
+      "purpose": "Making sure I didn't pick the wrong topic.",
+      "prompt": "My friend suggested a Gaussian Mixture Model paper instead. Is this SVM paper easier to code and explain than a GMM paper, since this choice will also affect my Parts B and C?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "It helped me realize that coding GMM math from scratch is very hard, and this SVM paper is a much safer choice for my exam.",
+      "student_verification": "I remembered our class lectures on GMMs and agreed that the math would be too hard to code from scratch on a deadline.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 6,
+      "date": "2026-03-02",
+      "tool_name": "Gemini",
+      "model": "Gemini 3.1 Pro",
+      "purpose": "Checking if the math in this 64-page paper is too hard for me.",
+      "prompt": "This paper has 64 pages, which is very long. Is the math too complex for me to code, or is the main idea simple enough for my exam?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "It reassured me that most of the pages are just heavy proofs for the journal, and the main coding part is actually very small and simple.",
+      "student_verification": "I skimmed through the PDF and saw that the actual experiment setup is clear and the rest is just theory I don't need to code.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 4,
+      "prompt": "I have a doubt. If we remove 'b', the line has to go exactly through zero. What if the data points are grouped far away from zero? Won't it fail to separate them?",
+      "why_important": "This was my biggest conceptual doubt. I couldn't visualize how a model stuck at zero could work. Asking this helped me understand high-dimensional geometry, which is great for my Part C viva."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "I need a paper on Support Vector Machines from 2009 to 2012. Can you suggest one that is easy to code on my laptop and doesn't have crazy math?",
+      "why_important": "This was the most important search question. It focused on my real limits (laptop hardware and math skills) and helped me find the perfect, practical choice."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 5,
+      "prompt": "My friend suggested a Gaussian Mixture Model paper instead. Is this SVM paper easier to code and explain than a GMM paper, since this choice will also affect my Parts B and C?",
+      "why_important": "This helped me weigh my options. It stopped me from picking a mathematically heavy GMM paper that would have caused me to struggle in Part B."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 3,
+      "prompt": "I'm looking at 'Training SVMs Without Offset'. Can you explain in simple words what 'offset' means and why removing it makes the model faster?",
+      "why_important": "This helped me deeply understand the paper's main idea in simple English, which is exactly what I need to confidently explain it to the teacher."
+    },
+    {
+      "rank": 5,
+      "interaction_id": 1,
+      "prompt": "Can you read my exam instructions and tell me the strict rules for picking a paper? I need the exact allowed years and topics.",
+      "why_important": "This was the foundation. By asking for a summary of the strict rules first, I made sure I would not get disqualified for a silly mistake."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Part A.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-02"
+  }
+}
