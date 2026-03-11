@@ -1,0 +1,132 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-06",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Basic clarification on what removing b actually means.",
+      "prompt": "ok so in the svm paper when they say they remove offset b does that mean the line always goes through origin? like geometrically?",
+      "task_tag": "Task 1.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — just a conceptual question, no code.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed yes, removing b forces the hyperplane to pass through origin. That made the whole paper click for me.",
+      "student_verification": "Re-read intro of Section 1 to confirm.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-06",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Trying to understand where the equality constraint in standard SVM dual comes from.",
+      "prompt": "why does standard SVM dual have that sum(alpha_i * y_i) = 0 constraint? does removing b actually make it disappear or do we still need it for something else",
+      "task_tag": "Task 1.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — conceptual only.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Explained it comes from differentiating Lagrangian w.r.t. b. No b in primal = no constraint in dual. I then re-derived it myself on paper to confirm.",
+      "student_verification": "Checked Eq. (2) in the paper matches.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Deriving the 1D update step size.",
+      "prompt": "for the coordinate update step im getting alpha_i_new = alpha_i + g_i / K_ii but im not sure where 1/K_ii comes from, is it just a learning rate or is it exact?",
+      "task_tag": "Task 1.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — derivation check only.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed it is the exact closed-form 1D maximizer, not a heuristic learning rate. Differentiating the 1D quadratic w.r.t. alpha_i gives step = g_i / K_ii before clipping.",
+      "student_verification": "Did the differentiation myself on paper.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Sanity check on my step order for the method description.",
+      "prompt": "my steps are: formulate dual → cold start → compute gradient → WSS → 1D update → update f values → KKT check → repeat. is this the right order or do I check KKT before WSS?",
+      "task_tag": "Task 1.1",
+      "code_used_verbatim": false,
+      "student_modification": "Added the final prediction step which I had forgotten.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Pointed out I was missing the final output step (produce the sign(f(x)) classifier). Also confirmed KKT check is typically done before WSS to see if we can stop.",
+      "student_verification": "Cross-checked against Algorithm 1 in the paper.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 5,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Checking what KKT violation means for a single variable.",
+      "prompt": "whats the kkt violation for a single alpha_i? like how do i compute it as a number for each variable",
+      "task_tag": "Task 1.1",
+      "code_used_verbatim": false,
+      "student_modification": "Wrote the KKT table in my own words in the notebook.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Gave the formula: violation = max(g_i, 0) if alpha_i < C, plus max(-g_i, 0) if alpha_i > 0.",
+      "student_verification": "Confirmed against Section 2.1 Eq. (6)-(8) of the paper.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 2,
+      "prompt": "why does standard SVM dual have that sum(alpha_i * y_i) = 0 constraint? does removing b actually make it disappear?",
+      "why_important": "This is the core question of the whole paper. Understanding where that constraint comes from made everything else make sense."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 3,
+      "prompt": "im not sure where 1/K_ii comes from, is it just a learning rate or is it exact?",
+      "why_important": "Needed to know this to correctly implement the update and explain it in the notebook."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 1,
+      "prompt": "when they remove b does the line always go through origin geometrically?",
+      "why_important": "This basic geometric understanding set the foundation for Task 1.1 and also for designing the failure mode in Task 3.2."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 5,
+      "prompt": "whats the kkt violation for a single alpha_i, how do i compute it as a number",
+      "why_important": "Needed this to implement and explain the stopping criterion correctly."
+    },
+    {
+      "rank": 5,
+      "interaction_id": 4,
+      "prompt": "is this the right step order or do I check KKT before WSS?",
+      "why_important": "Helped me get the algorithm flow right before writing it up."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

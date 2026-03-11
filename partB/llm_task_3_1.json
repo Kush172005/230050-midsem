@@ -1,0 +1,111 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Figuring out what to actually ablate.",
+      "prompt": "i need to ablate 2 components of this offset-free svm. i was going to try changing C but my friend said thats not a component its a hyperparameter. what are actual algorithm components i can ablate?",
+      "task_tag": "Task 3.1 Component 1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — component selection. I chose WSS and initialization after this conversation.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Listed genuine method components: Working Set Selection strategy (Section 4), initialization strategy (Section 2.2), stopping tolerance. I chose WSS and initialization as they are most clearly defined in the paper.",
+      "student_verification": "Re-read Section 4 and 2.2 to confirm these are explicit algorithmic design choices.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "WSS 0 implementation detail.",
+      "prompt": "for random WSS do i pick randomly from all n training points or only from the ones that are currently violating the KKT conditions",
+      "task_tag": "Task 3.1 Component 1",
+      "code_used_verbatim": false,
+      "student_modification": "Implemented random selection over violating variables only. Implementation is entirely mine.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Clarified: only from violating variables is fairer — picking from non-violating ones wastes iterations doing nothing.",
+      "student_verification": "Confirmed against Section 4.1 of the paper.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Bad initialization idea for Ablation 2.",
+      "prompt": "what would be a 'bad' starting point for alpha that is still feasible (0 <= alpha_i <= C). i want something that is clearly worse than starting at all zeros",
+      "task_tag": "Task 3.1 Component 2",
+      "code_used_verbatim": false,
+      "student_modification": "I chose alpha = C/2 for all i. The reasoning for why this is bad is my own.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested alpha = C/2 or alpha = C for all variables. I chose C/2 as it represents maximum uncertainty (midpoint of feasible range).",
+      "student_verification": "Verified alpha = 0.5 satisfies 0 <= alpha_i <= C = 1.0.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Understanding why accuracy is the same despite worse convergence.",
+      "prompt": "both my ablations converged to same accuracy just slower. is that expected? i would have thought random WSS might find a different local minimum",
+      "task_tag": "Task 3.1 Component 1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — conceptual check. Interpretation paragraph is fully my own writing.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Explained the dual is a concave quadratic so there is only one global maximum. Any valid coordinate ascent converges to the same solution — WSS only affects the path, not the destination.",
+      "student_verification": "Matches Theorem 1 guarantee in the paper.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "i was going to ablate C but my friend said thats a hyperparameter not a component, what are actual algorithm components?",
+      "why_important": "This completely changed my ablation plan. Ablating genuine paper-defined components (WSS, initialization) is much more credible than tuning C."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 4,
+      "prompt": "both ablations converged to same accuracy just slower — is that expected or did i do something wrong?",
+      "why_important": "This is the key insight. The dual is concave = unique maximum = every valid strategy finds it. Core to the ablation interpretation."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 2,
+      "prompt": "for random WSS do i pick from all n points or only violating ones?",
+      "why_important": "This implementation detail affects whether the comparison is fair."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 3,
+      "prompt": "what would be a 'bad' starting point for alpha that is still feasible?",
+      "why_important": "Needed a principled choice for Ablation 2, not just an arbitrary starting point."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Choosing between Iris and make_classification.",
+      "prompt": "for a toy dataset should i use iris or just make_classification with 2 blobs, which is better for testing offset-free svm specifically",
+      "task_tag": "Task 2.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — dataset selection, no code from LLM.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Explained Iris is better because it is a real dataset (more credible), after StandardScaler it satisfies the centering condition, and 2D petal features let me plot the decision boundary.",
+      "student_verification": "Ran StandardScaler and checked that feature means were near zero.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Quick check on stratified split.",
+      "prompt": "what does stratify=y actually do in train_test_split, like why do i need it",
+      "task_tag": "Task 2.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — just wanted to understand it before writing the explanation.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Explained it maintains class proportions in both train and test sets. Without it you might accidentally get all one class in test.",
+      "student_verification": "Checked the class distribution in my splits.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Writing the limitations comparison.",
+      "prompt": "what are the main differences between using iris vs sonar dataset for this paper's experiments, i need to write a few sentences about limitations",
+      "task_tag": "Task 2.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — Used ideas to write the paragraph myself.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Listed: Iris is nearly perfectly separable so we don't see margin effects, only 2 features vs 60, and no class overlap. Helped me write a concrete limitations paragraph.",
+      "student_verification": "Confirmed paper uses Sonar in Section 6 Table 1.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "should i use iris or just make_classification, which is better for testing offset-free svm specifically",
+      "why_important": "Dataset choice needs a paper-specific justification, not just 'it works for SVMs'. This helped me build a convincing case for Iris."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 3,
+      "prompt": "what are the main differences between iris vs sonar for this paper's experiments",
+      "why_important": "The exam requires explicitly stating limitations. This gave me the right dimensions to compare on."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 2,
+      "prompt": "what does stratify=y actually do in train_test_split",
+      "why_important": "Needed to explain the preprocessing step accurately in the markdown cell."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Getting a structural reference before writing my own implementation.",
+      "prompt": "can you give me pseudocode for the 1D coordinate ascent loop from this SVM paper, just the loop structure not actual python code",
+      "task_tag": "Task 2.2",
+      "code_used_verbatim": false,
+      "student_modification": "I wrote the full Python class from scratch. Used the pseudocode only as a reference to check I had the right order of operations. Added the incremental f_vals update, clipping, and K_ii safety guard myself.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Confirmed the loop order: compute gradient → check KKT violation → if converged stop → pick i_star → update alpha → update f_vals.",
+      "student_verification": "Verified each step against Algorithm 1 in the paper.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Debugging — solver was not converging.",
+      "prompt": "my max_violation keeps jumping around and not decreasing, i think my f_vals update is wrong. im doing f_vals += (alpha_new - alpha_old) * K[i_star, :]. is this right?",
+      "task_tag": "Task 2.2",
+      "code_used_verbatim": false,
+      "student_modification": "Found the bug myself first (missing y[i_star]). LLM confirmed my fix was correct.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed the correct line is f_vals += (alpha_new - alpha_old) * y[i_star] * K[i_star, :]. The label y[i_star] must be included since K stores raw kernel values not label-weighted ones.",
+      "student_verification": "Tested and confirmed max_violation decreases monotonically after fix.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Naive question about what alpha values mean.",
+      "prompt": "quick dumb q: if alpha_i is 0 does that point have no effect on the classifier at all?",
+      "task_tag": "Task 2.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — just a conceptual check to make sure I understood correctly.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed yes — points with alpha=0 are not support vectors and contribute zero to the decision function. Only points with alpha > 0 matter.",
+      "student_verification": "Matched what I knew about SVM support vectors.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Checking the citation for the update rule.",
+      "prompt": "should i cite Eq 3 or Procedure 1 for the alpha update step in my notebook annotations",
+      "task_tag": "Task 2.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — reference check only.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Clarified: Eq (3) is the dual objective. The actual update step is in Procedure 1 Section 2. Updated my annotation to cite Procedure 1.",
+      "student_verification": "Checked the paper to confirm.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 2,
+      "prompt": "my f_vals update seems wrong, im doing f_vals += (alpha_new - alpha_old) * K[i_star, :], is this right?",
+      "why_important": "This caught the bug that was breaking my solver. Without fixing this, nothing in Tasks 2.3, 3.1, and 3.2 would have worked correctly."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 1,
+      "prompt": "can you give me pseudocode for the 1D coordinate ascent loop, just the structure not python code",
+      "why_important": "Gave me a reference to check my own implementation structure against, which I then built myself."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 4,
+      "prompt": "should i cite Eq 3 or Procedure 1 for the alpha update step",
+      "why_important": "Task 2.2 is graded on annotation quality — getting the paper reference right matters."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 3,
+      "prompt": "if alpha_i is 0 does that point have no effect on the classifier at all?",
+      "why_important": "Needed to understand this before writing the markdown interpretation of support vectors in the notebook."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task. No LLM code was copied verbatim — the full implementation is my own.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

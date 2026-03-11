@@ -1,0 +1,111 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Figuring out what counts as a paper-specific assumption vs a general one.",
+      "prompt": "my exam says assumptions must be specific to the paper not like 'data is iid'. i found centering is needed but is that really specific to this paper or is centering just always good practice for SVMs?",
+      "task_tag": "Task 1.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — clarification only. Wrote all assumption text myself.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Clarified that in standard SVM, b compensates for non-centered data so centering is optional. Here b doesn't exist, so centering becomes structurally required — that makes it paper-specific.",
+      "student_verification": "Found the normalization recommendation in Section 1 of the paper.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Brainstorming more assumptions.",
+      "prompt": "ok i have centering as assumption 1. what are 2 more assumptions that are actually in this specific paper not just general svm stuff",
+      "task_tag": "Task 1.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — brainstorming. I picked from the suggestions and wrote everything myself.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested: valid Mercer kernel (for concavity of dual) and finite C (for convergence theorem). I then found the paper references for each myself.",
+      "student_verification": "Read Theorem 1 Section 5 and Section 2 dual derivation.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Dumb question about PSD kernels.",
+      "prompt": "what does PSD even mean for a kernel matrix, like in simple terms",
+      "task_tag": "Task 1.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — just needed to understand the concept before writing about it.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Explained PSD = all eigenvalues non-negative = the matrix is like a 'bowl' shape in all directions. For SVMs this means the dual objective is concave = unique maximum.",
+      "student_verification": "Made sense with what I knew about convex optimization.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Checking whether the iteration bound in Theorem 1 actually depends on C.",
+      "prompt": "does theorem 1 in the paper actually have C in the iteration bound or am i misreading it",
+      "task_tag": "Task 1.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — paper reference verification.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed yes, the bound is proportional to C. So large C = potentially many more iterations.",
+      "student_verification": "Re-read Theorem 1 myself to confirm before adding this as an assumption.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "is centering really specific to this paper or is it just general svm good practice?",
+      "why_important": "This framing question was important — without it I might have written a generic assumption that the grader would reject."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "ok i have centering as assumption 1, what are 2 more that are actually in this specific paper",
+      "why_important": "Helped me identify the Mercer kernel and finite-C assumptions, both of which are traceable to specific theorems."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 4,
+      "prompt": "does theorem 1 actually have C in the iteration bound or am i misreading it",
+      "why_important": "Needed to confirm the paper reference before writing the assumption — citing the wrong section would be a problem."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 3,
+      "prompt": "what does PSD even mean for a kernel matrix in simple terms",
+      "why_important": "Had to understand it properly to explain why it matters for this method specifically."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

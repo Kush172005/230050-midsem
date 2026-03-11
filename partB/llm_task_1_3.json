@@ -1,0 +1,111 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Identifying the exact baseline the paper compares to.",
+      "prompt": "is the paper comparing against libsvm specifically or just 'standard svm' in general? I want to name it exactly",
+      "task_tag": "Task 1.3",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — fact check only.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed LIBSVM (Chang & Lin 2001) is the explicit comparison — it's cited by name in Section 1 and Section 6.",
+      "student_verification": "Found the citation myself in the paper.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Understanding why 2-variable updates are forced in standard SVM.",
+      "prompt": "i get that the equality constraint means you need 2-variable updates but WHY exactly? like if i just change alpha_i and not alpha_j what breaks?",
+      "task_tag": "Task 1.3",
+      "code_used_verbatim": false,
+      "student_modification": "Wrote explanation in my own words for the notebook.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Explained: changing alpha_i alone changes sum(alpha_i * y_i) away from 0, which violates the equality constraint. You need to simultaneously adjust another alpha_j to restore feasibility.",
+      "student_verification": "Traced through it myself with a small example.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Coming up with when offset-free SVM would actually be worse.",
+      "prompt": "when would you prefer libsvm over this method? not just 'when data is not centered' but like a real scenario",
+      "task_tag": "Task 1.3",
+      "code_used_verbatim": false,
+      "student_modification": "Wrote my own concrete example with (10,10) and (10,8) coordinates. LLM only gave me the general direction.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Pointed to low-dimensional non-centered data as the clearest case. I then made my own specific example.",
+      "student_verification": "Verified the scenario is not in the paper — it's my own inference as required.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Quick stupid check on something basic.",
+      "prompt": "wait does libsvm also use a kernel or is it just linear? i forgot",
+      "task_tag": "Task 1.3",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — quick factual check.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed LIBSVM supports multiple kernels (linear, RBF, polynomial etc). Not directly relevant to my answer but I wanted to be sure.",
+      "student_verification": "Checked LIBSVM documentation briefly.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 2,
+      "prompt": "if i just change alpha_i and not alpha_j what breaks?",
+      "why_important": "Understanding this gave me a concrete way to explain the limitation of LIBSVM rather than just restating that it uses 2-variable updates."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 3,
+      "prompt": "when would you prefer libsvm over this method, not just 'when data is not centered' but a real scenario",
+      "why_important": "The exam asks for a scenario that may be my own inference. This pushed me to construct a specific example rather than just rephrasing the paper."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 1,
+      "prompt": "is the paper comparing to libsvm specifically or just standard svm generally?",
+      "why_important": "Naming the baseline precisely matters — the exam says to name it explicitly."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 4,
+      "prompt": "does libsvm also use a kernel or just linear?",
+      "why_important": "Small sanity check — wanted to make sure I wasn't saying anything wrong about the baseline."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

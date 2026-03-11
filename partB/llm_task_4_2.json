@@ -1,0 +1,90 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-09",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Confirming the JSON structure matches what Part A used.",
+      "prompt": "my part b disclosure files need to follow part a format but add task_tag, code_used_verbatim, and student_modification. can you confirm what the structure should look like",
+      "task_tag": "Task 4.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — format check. I filled all 10 files myself.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed the keys: student_metadata, llm_tools_used, full_llm_interaction_log, top_5_prompts, student declaration. Also pointed out student_modification should still be present even when code_used_verbatim is false.",
+      "student_verification": "Compared against my Part A file llm_usage_partA.json.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-09",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Dumb clarification on top_5_prompts.",
+      "prompt": "for top 5 prompts if i only had 3 interactions for a task do i need to pad it with 5 or just include the 3",
+      "task_tag": "Task 4.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — format clarification.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Said if fewer than 5 interactions, include all of them. The instructions also say 'if fewer than five interactions were logged for a task, include all of them'.",
+      "student_verification": "Re-read the instructions — confirmed matches.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-09",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Another small check on cross-file referencing.",
+      "prompt": "can the top_5_prompts in llm_task_1_1.json reference an interaction from llm_task_2_2.json if that interaction was also relevant?",
+      "task_tag": "Task 4.2",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — rules check only.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Said no — top_5_prompts must come from interactions in the same file. Cross-file references violate the per-task disclosure intent.",
+      "student_verification": "Manually checked all files to make sure interaction IDs in top_5_prompts only reference within the same file.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "my part b disclosure files need task_tag, code_used_verbatim, and student_modification on top of part a format, can you confirm the structure",
+      "why_important": "Getting format wrong means losing 1.5 marks per file across 10 files = 15 marks. This was worth double-checking."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 3,
+      "prompt": "can top_5_prompts in one file reference an interaction from a different file?",
+      "why_important": "Needed to know this before finalising all 10 files to avoid having to redo them."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 2,
+      "prompt": "if i only had 3 interactions for a task do i need to pad to 5 prompts or just use the 3?",
+      "why_important": "Quick practical question that confirmed I don't need to invent extra interactions."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

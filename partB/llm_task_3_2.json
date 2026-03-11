@@ -1,0 +1,90 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Designing a failure mode that links to my Task 1.2 assumptions.",
+      "prompt": "my assumption 1 was that data must be centered. how do i design a synthetic dataset where this assumption is violated and offset-free svm clearly fails while standard svm works",
+      "task_tag": "Task 3.2",
+      "code_used_verbatim": false,
+      "student_modification": "I chose specific cluster centers (8, 0.5) and (8, -0.5) with noise=1.0 myself. The LLM gave the general direction.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested placing both clusters on the same side of origin far from x=0 and separated on y-axis. Also told me NOT to apply StandardScaler for this experiment, which I would have done by habit.",
+      "student_verification": "Drew a sketch to check that no line through origin can separate the clusters correctly.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Checking that the failure actually fails (not accidentally correct).",
+      "prompt": "wait actually couldn't a line through origin at a nearly horizontal angle still separate points with y>0 from y<0? would offset-free svm actually fail here or might it accidentally get good accuracy",
+      "task_tag": "Task 3.2",
+      "code_used_verbatim": false,
+      "student_modification": "After this I made the clusters overlap by adding noise=1.0, which forces a clear failure. Change is my own design decision.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Pointed out yes — in a clean separation case a horizontal-ish plane might accidentally work. Suggested adding noise to make the clusters overlap on the y-axis so the boundary position matters. I then re-ran and confirmed the failure was clear.",
+      "student_verification": "Ran the code with clean vs noisy clusters and saw the difference in accuracy.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "One-sentence fix suggestion.",
+      "prompt": "the exam asks for one sentence suggesting a fix to the failure mode. whats the simplest fix without reintroducing b",
+      "task_tag": "Task 3.2",
+      "code_used_verbatim": false,
+      "student_modification": "I chose centering-as-preprocessing over the alternative of adding b back. Sentence is my own writing.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Offered two options: (1) mandatory centering step built in, or (2) learn an offset via a separate unconstrained optimization. I went with option 1 as simpler.",
+      "student_verification": "Exam says no implementation required so just confirmed the suggestion is reasonable.",
+      "confidence_level": 4
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "how do i design a dataset where centering assumption is violated and offset-free svm clearly fails",
+      "why_important": "The failure mode must connect to Task 1.2 assumptions. Getting this right closes the loop the grader is looking for."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "couldn't a line through origin still separate y>0 from y<0 accidentally? would it actually fail?",
+      "why_important": "Good sanity check. Saved me from submitting an experiment where the 'failure' accidentally succeeds, which would have been embarrassing."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "whats the simplest fix without reintroducing b",
+      "why_important": "The one-sentence fix is part of the marking. Having a thoughtful answer here shows I understood what caused the failure."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Figuring out how to honestly compare different-dataset results.",
+      "prompt": "i got 100% on iris but paper reports like 87% on sonar. my exam says to compare my result to the paper's but they're on totally different datasets. how do i write this without making it look like i failed",
+      "task_tag": "Task 2.3",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — writing guidance. All text is my own.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Suggested framing it around validating the qualitative claim (offset-free ≈ standard SVM accuracy) rather than matching exact numbers. That matched what the exam instructions say about not presenting gaps as failures.",
+      "student_verification": "Re-read the exam instructions which say 'describe it as an honest observation'.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Choosing a visualisation.",
+      "prompt": "should i plot a confusion matrix or just show accuracy as a number for the reproducibility section",
+      "task_tag": "Task 2.3",
+      "code_used_verbatim": false,
+      "student_modification": "Chose confusion matrix over bar chart. Plotting code is mine.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Said confusion matrix is better because it shows per-class breakdown, not just aggregate accuracy. That's more informative for a binary classifier.",
+      "student_verification": "Saved the plot to results/ as required.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-08",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Quick check on reproducibility checklist format.",
+      "prompt": "what does hyperparameters in one place mean for the reproducibility checklist, do i just put them in a dict at the top?",
+      "task_tag": "Task 2.3",
+      "code_used_verbatim": false,
+      "student_modification": "I added a HYPERPARAMS section at the top of the notebook. Structure is my own.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed yes, a dict or labelled constants at the top is the standard approach so someone can change values without hunting through code.",
+      "student_verification": "Reviewed the notebook to make sure all hyperparameter uses point to the top-of-file definitions.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "i got 100% on iris but paper reports 87% on sonar, how do i compare them without making it look like i failed",
+      "why_important": "This framing question changed how I wrote the comparison section. Qualitative-claim validation is the honest approach."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 3,
+      "prompt": "what does hyperparameters in one place mean for the reproducibility checklist",
+      "why_important": "A practical question that affected how I structured the notebook."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 2,
+      "prompt": "should i plot a confusion matrix or just accuracy as a number",
+      "why_important": "Chose the better visualisation for the task."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}

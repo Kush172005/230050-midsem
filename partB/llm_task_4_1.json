@@ -1,0 +1,90 @@
+{
+  "student_metadata": {
+    "name": "Kush Agarwal",
+    "roll_number": "230050",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "provider": "Google"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-09",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Allocating content across 4 pages.",
+      "prompt": "i have 4 pages to cover: paper summary, reproduction result, 2 ablations, failure mode, and reflection. two column format. how should i split the space roughly",
+      "task_tag": "Task 4.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — layout planning. All report text is my own.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Suggested ~half page for summary, ~3/4 page for reproduction, ~1 page for both ablations, ~3/4 page for failure, ~half page for reflection. I adjusted based on which sections had more to say.",
+      "student_verification": "Checked the final report fits within 4 pages.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-09",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Reflection section tone.",
+      "prompt": "for the honest reflection section is it okay to say i couldnt implement warm starts or is that too negative to put in a report",
+      "task_tag": "Task 4.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — all reflection text is my own.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Said yes absolutely include it — the exam instructions literally say 'what you could not implement'. Being specific about warm starts and nearest-neighbour WSS shows you read those sections of the paper.",
+      "student_verification": "Re-read exam instructions: 'what you could not implement, what surprised you'. Matches.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-09",
+      "tool_name": "Gemini",
+      "model": "Gemini 2.5 Pro",
+      "purpose": "Quick check on whether abstract is needed.",
+      "prompt": "does a 4 page technical report need an abstract or is that a waste of space in a short report",
+      "task_tag": "Task 4.1",
+      "code_used_verbatim": false,
+      "student_modification": "N/A — structural question.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Said a short abstract (2-3 sentences) helps the reader and does not waste space if kept concise. It also acts as a natural introduction to the paper context.",
+      "student_verification": "Included a short abstract in report.tex.",
+      "confidence_level": 4
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 2,
+      "prompt": "is it okay to say i couldnt implement warm starts or is that too negative",
+      "why_important": "The reflection section is 3 marks. Knowing that honest limitations are specifically what the grader wants changed how I wrote it."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 1,
+      "prompt": "how should i split 4 pages across paper summary, reproduction, 2 ablations, failure mode, reflection",
+      "why_important": "With a hard page limit, not planning the allocation means some required sections end up too thin."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "does a 4 page report need an abstract or is it a waste of space",
+      "why_important": "Small structural decision that affected the report layout."
+    }
+  ],
+  "student declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for the indicated task.",
+    "understanding acknowledged": true,
+    "signature": "Kush Agarwal",
+    "date": "2026-03-11"
+  }
+}
